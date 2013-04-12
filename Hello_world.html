@@ -1,63 +1,130 @@
-<!DOCTYPE html>
-<!-- HTML5 Hello world by kirupa - http://www.kirupa.com/html5/getting_your_feet_wet_html5_pg1.htm -->
-<html lang="en-us">
-
+git <div dir="ltr" style="text-align: left;" trbidi="on">
 <head>
-<meta charset="utf-8">
-<title>Hello...</title>
-<style type="text/css">
+<script
+src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDXhWW6bIUHLIGt73uRG-8zMtzwJ71FHik&sensor=false">
+</script>
+<script>
+function initialize()
+{
+var mapProp = {
+  center:new google.maps.LatLng(37.399325, -122.072412),
+  zoom:18,
+  mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+}
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+</head>
+<body onload="startclock()">
+<div dir="ltr" style="text-align: left;" trbidi="on">
 
-#mainContent {
+
+Datefield...
+<form name="form1">
+<input type="text" name="datum">
+</form>
+
+Timer with function()...
+</div>
+<form name="clock" onsubmit="0">
+<div id="clock">
+<input name="face" size="12" type="button" value="JavaScript!!" />
+</div>
+</form>
+
+<p id="demo">
+</p>
+
+<button type="button" onclick="displayDate()">Display Date</button>
+
+
+Google Map Integration with JavaScript, starting in Mountain View, Zoomfactor 18
+<div id="googleMap" style="height: 380px; width: 800px;">
+</div>
+
+
+
+<script>
+
+var timerID = null;
+var timerRunning = false;
+
+function tagesdatum(frmObj)
+    {
+   var d = new Date()
+   var tagesdatum = d.getDate()
+   tagesdatum += "."+d.getMonth()
+   tagesdatum += "."+d.getFullYear()
+   frmObj.value = tagesdatum;
+   }
+tagesdatum(window.document.form1.datum);
+
+function displayDate()
+{
+document.getElementById("demo").innerHTML=Date();
+}
+
+function stopclock (){
+        if(timerRunning);
+           clearTimeout(timerID);
+        timerRunning = false;
+    }
+
+function startclock () {
+        stopclock();
+        showtime();
+    }
+function showtime () {
+        var now = new Date();
+        var hours = now.getHours();
+        var minutes = now.getMinutes();
+        var seconds = now.getSeconds()
+        var timeValue = "" + ((hours >12) ? hours -12 :hours)
+        timeValue += ((minutes < 10) ? ":0" : ":") + minutes
+        timeValue += ((seconds < 10) ? ":0" : ":") + seconds
+        timeValue += (hours >= 12) ? " P.M." : " A.M."
+        document.clock.face.value = timeValue;
+        timerID = setTimeout("showtime()",1000);
+        timerRunning = true;
+    }
+</script>
+</body> 
+
+<style>
+
+#clock {
     font-family: Arial, Helvetica, sans-serif;
-	font-size: xx-large;
-	font-weight: bold;
-	background-color: #E3F0FB;
-	border-radius: 4px;
-	padding: 10px;
-	text-align: center;
+    font-size: small;
+ font-weight: bold;
+ background-color: #E3FA3B;
+ border-radius: 4px;
+ padding: 10px;
+ text-align: center;
 }
 .buttonStyle {
-	border-radius: 4px;
-	border: thin solid #F0E020;
-	padding: 5px;
-	background-color: #F8F094;
-	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-	font-weight: bold;
-	color: #663300;
-	width: 75px;
+ border-radius: 4px;
+ border: thin solid #F0E020;
+ padding: 5px;
+ background-color: #F8F094;
+ font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+ font-weight: bold;
+ color: #663300;
+ width: 75px;
 }
 
 .buttonStyle:hover {
-	border: thin solid #FFCC00;
-	background-color: #FCF9D6;
-	color: #996633;
-	cursor: pointer;
+ border: thin solid #FFCC00;
+ background-color: #FCF9D6;
+ color: #996633;
+ cursor: pointer;
 }
 .buttonStyle:active {
-	border: thin solid #99CC00;
-	background-color: #F5FFD2;
-	color: #669900;
-	cursor: pointer;
+ border: thin solid #99CC00;
+ background-color: #F5FFD2;
+ color: #669900;
+ cursor: pointer;
 }
 
 </style>
-</head>
-
-<body>
-<div id="mainContent">
-<p id="helloText">????</p>
-<button id="clickButton" class="buttonStyle">click me</button>
 </div>
-<script> 
-var myButton = document.getElementById("clickButton");
-var myText = document.getElementById("helloText");
-
-myButton.addEventListener('click', doSomething, false)
-
-function doSomething() {
-	myText.textContent = "hello, world!";
-}
-</script>
-
-</body>
-</html>
