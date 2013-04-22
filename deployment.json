@@ -2,6 +2,6 @@
   "strategy": "git+ssh://git@github.com:apphouse-sap/hanaxs.git",
 	"host": "B125C3N21X.PAL.SAP.CORP:30115",
 	"user": "system",
-	"pass": "Manager1",
+	"pass": "4Cloudonly",
 	"root": "foo"
 }
