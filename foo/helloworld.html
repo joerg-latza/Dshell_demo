@@ -9,7 +9,7 @@ function initialize()
 var mapProp = {
   center:new google.maps.LatLng(37.398949,-122.146297),
   zoom:16,
-  mapTypeId:google.maps.MapTypeId.SATELLITE
+  mapTypeId:google.maps.MapTypeId.ROADMAP
   };
 var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
 }
@@ -21,6 +21,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 <br>
 <b></b>Hello World, this is HANA calling...I'm a simple Web Page and I've been deployed using SAP HANA Deployment shell</b>
+<br>
 
 <hr>
 <form name="date" onsubmit="0">
@@ -31,6 +32,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 <hr>
 
 Google Maps Integration with JavaScript, Focus on SAP Labs Palo Alto, Zoomfactor 18
+<br>
 <div id="googleMap" style="height: 420px; width: 800px;">
 </div>
 
